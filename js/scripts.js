@@ -1,4 +1,4 @@
-var quote = "coś";
+var quote = $('#text').text();
 var tweetApi = "https://twitter.com/intent/tweet";
 
 $('.btn').on('click', function() {
@@ -8,12 +8,12 @@ $('.btn').on('click', function() {
         cache: false,
         success: function(data) {
             $('.container').hide().fadeIn(1000);
-            $('#text').text('"' + shortString(data.quote) + '"');
+            $('#text').text(shortString(data.quote));
             quote = data.quote;
             $('#author').text("-" + data.author);
-            console.log(data);
+            // console.log(data);
             tweetApi += "?text=" + encodeURI(data.quote) + " " + encodeURI(data.author);
-            console.log(tweetApi);
+            // console.log(tweetApi);
             $('.tweet').attr("href", tweetApi);
         }
 
@@ -36,12 +36,24 @@ $('.btn').on('click', function() {
 $('#text').on('click', function() {
     console.log(quote);
     // $('#author').remove();
-    $(this).text(quote);
+    console.log(this.val);
+    // if (this.val.length === quote.length) {
+    //     $(this).text(shortString(quote));
+    // }
+    // $(this).text('"' + quote + '"');
+    // $(this).text(shortString(quote));
 })
 
 
 function shortString(arg) {
-    var str = arg.slice(0, 65);
-    return str + "...";
+    var str;
+    console.log(arg.length);
+    if (arg.length > 100) {
+        str = arg.slice(0, 97) + "...";
+    } else {
+        str = arg.slice(0, 100);
+    }
+
+    return str;
 
 }
