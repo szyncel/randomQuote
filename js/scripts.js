@@ -1,4 +1,3 @@
-var quote = $('#text').text();
 var tweetApi = "https://twitter.com/intent/tweet";
 
 $('.btn').on('click', function() {
@@ -33,16 +32,16 @@ $('.btn').on('click', function() {
 
 // }
 
-$('#text').on('click', function() {
-    console.log(quote);
-    // $('#author').remove();
-    console.log(this.val);
-    // if (this.val.length === quote.length) {
-    //     $(this).text(shortString(quote));
-    // }
-    // $(this).text('"' + quote + '"');
-    // $(this).text(shortString(quote));
-})
+// $('#text').on('click', function() {
+//     console.log(quote);
+//     // $('#author').remove();
+//     console.log(this.val);
+//     // if (this.val.length === quote.length) {
+//     //     $(this).text(shortString(quote));
+//     // }
+//     // $(this).text('"' + quote + '"');
+//     // $(this).text(shortString(quote));
+// })
 
 
 function shortString(arg) {
